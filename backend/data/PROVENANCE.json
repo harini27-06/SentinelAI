@@ -1,0 +1,15 @@
+{
+  "notice": "These files are synthetic dataset snapshots supplied for this project. They are not official UNSW-NB15 data, are not verified real-world telemetry, and must not be used to claim real-world detection efficacy.",
+  "files": [
+    {
+      "name": "sentinelai_synthetic_cleaned.csv",
+      "source": "C:/Users/USER/Downloads/sentinelai_synthetic_dataset/sentinelai_synthetic_cleaned.csv",
+      "description": "12k-row synthetic UNSW-NB15-style flow dataset copied unchanged."
+    },
+    {
+      "name": "sentinelai_agent_events.csv",
+      "source": "C:/Users/USER/Downloads/sentinelai_synthetic_dataset/sentinelai_agent_events.csv",
+      "description": "Synthetic agent event snapshot copied unchanged."
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "dataset": "synthetic_supplied_snapshot",
+  "rows": 12000,
+  "label_distribution": {
+    "0": 6986,
+    "1": 5014
+  },
+  "split": {
+    "train": 6981,
+    "validation": 2328,
+    "test": 2328,
+    "held_out_synthetic": 363
+  },
+  "feature_columns": [
+    "dur",
+    "proto",
+    "service",
+    "state",
+    "spkts",
+    "dpkts",
+    "sbytes",
+    "dbytes",
+    "rate",
+    "sttl",
+    "dttl",
+    "sload",
+    "dload",
+    "sloss",
+    "dloss",
+    "sinpkt",
+    "dinpkt",
+    "sjit",
+    "djit",
+    "swin",
+    "dwin",
+    "tcprtt",
+    "synack",
+    "ackdat",
+    "smean",
+    "dmean",
+    "trans_depth",
+    "response_body_len",
+    "ct_srv_src",
+    "ct_state_ttl",
+    "ct_dst_ltm",
+    "ct_src_dport_ltm",
+    "ct_dst_sport_ltm",
+    "ct_dst_src_ltm",
+    "is_ftp_login",
+    "ct_ftp_cmd",
+    "ct_flw_http_mthd",
+    "ct_src_ltm",
+    "ct_srv_dst",
+    "is_sm_ips_ports"
+  ],
+  "excluded_leakage_columns": [
+    "agent_type",
+    "attack_cat",
+    "endpoint_id",
+    "event_id",
+    "scenario",
+    "source",
+    "timestamp"
+  ],
+  "random_forest": {
+    "validation": {
+      "threshold": 0.3919963562810973,
+      "precision": 0.9989130434782608,
+      "recall": 0.9871106337271751,
+      "f1": 0.9929767693138843,
+      "accuracy": 0.9944158075601375,
+      "false_positive_rate": 0.0007158196134574087,
+      "roc_auc": 0.9985276105695264,
+      "confusion_matrix": [
+        [
+          1396,
+          1
+        ],
+        [
+          12,
+          919
+        ]
+      ]
+    },
+    "test": {
+      "threshold": 0.3919963562810973,
+      "precision": 0.9978401727861771,
+      "recall": 0.9935483870967742,
+      "f1": 0.9956896551724138,
+      "accuracy": 0.9965635738831615,
+      "false_positive_rate": 0.001430615164520744,
+      "roc_auc": 0.9993646838032827,
+      "confusion_matrix": [
+        [
+          1396,
+          2
+        ],
+        [
+          6,
+          924
+        ]
+      ],
+      "detection_latency_ms_per_event": 0.035242096235322734,
+      "classification_report": {
+        "0": {
+          "precision": 0.9957203994293866,
+          "recall": 0.9985693848354793,
+          "f1-score": 0.9971428571428571,
+          "support": 1398.0
+        },
+        "1": {
+          "precision": 0.9978401727861771,
+          "recall": 0.9935483870967742,
+          "f1-score": 0.9956896551724138,
+          "support": 930.0
+        },
+        "accuracy": 0.9965635738831615,
+        "macro avg": {
+          "precision": 0.9967802861077819,
+          "recall": 0.9960588859661268,
+          "f1-score": 0.9964162561576355,
+          "support": 2328.0
+        },
+        "weighted avg": {
+          "precision": 0.996567216105424,
+          "recall": 0.9965635738831615,
+          "f1-score": 0.9965623254278605,
+          "support": 2328.0
+        }
+      }
+    },
+    "held_out_synthetic_pattern": {
+      "available": true,
+      "scenario": "unseen_pattern_simulation",
+      "category": "Novel_Anomaly",
+      "records": 363,
+      "detections": 363,
+      "threat_recall": 1.0,
+      "threat_records": 363,
+      "false_positive_rate": null,
+      "score_type": "classifier probability",
+      "note": "Held-out synthetic pattern rows were excluded from training and validation. This is not evidence of real-world zero-day detection."
+    }
+  },
+  "isolation_forest_normal_only_fit": {
+    "validation": {
+      "threshold": -0.010664656038520064,
+      "precision": 0.8028571428571428,
+      "recall": 0.30182599355531686,
+      "f1": 0.43871975019516,
+      "accuracy": 0.6911512027491409,
+      "false_positive_rate": 0.049391553328561204,
+      "roc_auc": 0.760238873080031,
+      "confusion_matrix": [
+        [
+          1328,
+          69
+        ],
+        [
+          650,
+          281
+        ]
+      ]
+    },
+    "test": {
+      "threshold": -0.010664656038520064,
+      "precision": 0.814621409921671,
+      "recall": 0.33548387096774196,
+      "f1": 0.4752475247524752,
+      "accuracy": 0.7040378006872853,
+      "false_positive_rate": 0.05078683834048641,
+      "roc_auc": 0.7532581106650053,
+      "confusion_matrix": [
+        [
+          1327,
+          71
+        ],
+        [
+          618,
+          312
+        ]
+      ],
+      "detection_latency_ms_per_event": 0.03389243990234083
+    },
+    "held_out_synthetic_pattern": {
+      "available": true,
+      "scenario": "unseen_pattern_simulation",
+      "category": "Novel_Anomaly",
+      "records": 363,
+      "detections": 255,
+      "threat_recall": 0.7024793388429752,
+      "threat_records": 363,
+      "false_positive_rate": null,
+      "score_type": "uncalibrated anomaly score",
+      "note": "Held-out synthetic pattern rows were excluded from training and validation. This is not evidence of real-world zero-day detection."
+    }
+  },
+  "attack_categories": [
+    {
+      "category": "Backdoor",
+      "precision": 1.0,
+      "recall": 0.9833333333333333,
+      "f1_score": 0.9915966386554622,
+      "support": 60,
+      "detected": 59
+    },
+    {
+      "category": "DoS",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 229,
+      "detected": 229
+    },
+    {
+      "category": "Exploits",
+      "precision": 1.0,
+      "recall": 0.9950248756218906,
+      "f1_score": 0.9975062344139651,
+      "support": 201,
+      "detected": 200
+    },
+    {
+      "category": "Fuzzers",
+      "precision": 1.0,
+      "recall": 0.9844961240310077,
+      "f1_score": 0.9921875,
+      "support": 129,
+      "detected": 127
+    },
+    {
+      "category": "Generic",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 104,
+      "detected": 104
+    },
+    {
+      "category": "Reconnaissance",
+      "precision": 1.0,
+      "recall": 0.9879518072289156,
+      "f1_score": 0.9939393939393939,
+      "support": 166,
+      "detected": 164
+    },
+    {
+      "category": "Worms",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 41,
+      "detected": 41
+    }
+  ],
+  "warning": "Metrics are from synthetic data only and do not establish real-world detection efficacy."
+}
