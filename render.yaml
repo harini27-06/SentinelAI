@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: sentinelai-api-harini27-06
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+      - key: SENTINELAI_CORS_ORIGINS
+        value: https://sentinelai-web-harini27-06.onrender.com
+
+  - type: web
+    name: sentinelai-web-harini27-06
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://sentinelai-api-harini27-06.onrender.com/api
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

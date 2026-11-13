@@ -92,6 +92,12 @@ npm run dev
 
 Open `http://127.0.0.1:5173`. The configured API base URL is `VITE_API_BASE_URL` in `frontend\.env`; it defaults to `http://127.0.0.1:8000/api`. The backend accepts the local Vite origins `http://localhost:5173` and `http://127.0.0.1:5173`; override them with `SENTINELAI_CORS_ORIGINS` if needed.
 
+## Deploy to Render
+
+The root `render.yaml` defines a free FastAPI web service and a free static frontend. To deploy, sign in to Render, open the [SentinelAI Blueprint](https://dashboard.render.com/blueprints/new?repo=https://github.com/harini27-06/SentinelAI), connect the GitHub repository, and deploy the blueprint. Render builds the frontend with the API URL and configures backend CORS for the frontend domain.
+
+The free backend uses SQLite on ephemeral storage, so application data may be lost when the service restarts or is redeployed. Use persistent storage or a managed database for data that must be retained.
+
 ## API overview
 
 All application endpoints use the `/api` prefix:
